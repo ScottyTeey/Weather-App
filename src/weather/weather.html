@@ -1,0 +1,105 @@
+<div class="weather-container">
+  <!-- Search Section -->
+  <div class="search-section">
+    <h1 class="title">Weather Dashboard</h1>
+    <div class="search-box">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Enter city name..."
+        [value]="searchQuery"
+        (input)="onSearchChange($any($event.target).value)"
+        (keyup.enter)="onSearch()"
+      />
+      <button
+        class="search-button"
+        (click)="onSearch()"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="!isLoading">Search</span>
+        <span *ngIf="isLoading">...</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Fetching weather data...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage && !isLoading" class="error-container">
+    <div class="error-icon">⚠️</div>
+    <p class="error-message">{{ errorMessage }}</p>
+    <button class="retry-button" (click)="refreshWeather()">Try Again</button>
+  </div>
+
+  <!-- Weather Data Display -->
+  <div *ngIf="weatherData && !isLoading && !errorMessage" class="weather-card">
+    <!-- Location Header -->
+    <div class="location-header">
+      <h2 class="location-name">
+        {{ weatherData.location.name }}, {{ weatherData.location.country }}
+      </h2>
+      <p class="location-region">{{ weatherData.location.region }}</p>
+      <p class="local-time">{{ weatherData.location.localtime }}</p>
+    </div>
+
+    <!-- Main Weather Info -->
+    <div class="main-weather">
+      <div class="temperature-section">
+        <img
+          *ngIf="weatherData.current.weather_icons?.length"
+          [src]="weatherData.current.weather_icons[0]"
+          alt="Weather icon"
+          class="weather-icon"
+        />
+        <span class="temperature">{{ weatherData.current.temperature }}°C</span>
+      </div>
+      <p class="weather-description">
+        {{ weatherData.current.weather_descriptions.join(', ') }}
+      </p>
+      <p class="feels-like">Feels like {{ weatherData.current.feelslike }}°C</p>
+    </div>
+
+    <!-- Weather Details Grid -->
+    <div class="weather-details">
+      <div class="detail-item">
+        <span class="detail-icon">💧</span>
+        <span class="detail-label">Humidity</span>
+        <span class="detail-value">{{ weatherData.current.humidity }}%</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-icon">💨</span>
+        <span class="detail-label">Wind Speed</span>
+        <span class="detail-value">{{ weatherData.current.wind_speed }} km/h {{ weatherData.current.wind_dir }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-icon">🌡️</span>
+        <span class="detail-label">Pressure</span>
+        <span class="detail-value">{{ weatherData.current.pressure }} mb</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-icon">☁️</span>
+        <span class="detail-label">Cloud Cover</span>
+        <span class="detail-value">{{ weatherData.current.cloudcover }}%</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-icon">👁️</span>
+        <span class="detail-label">Visibility</span>
+        <span class="detail-value">{{ weatherData.current.visibility }} km</span>
+      </div>
+      <div class="detail-item">
+        <span class="detail-icon">☀️</span>
+        <span class="detail-label">UV Index</span>
+        <span class="detail-value">{{ weatherData.current.uv_index }}</span>
+      </div>
+    </div>
+
+    <!-- Refresh Button -->
+    <button class="refresh-button" (click)="refreshWeather()" [disabled]="isLoading">
+      🔄 Refresh
+    </button>
+  </div>
+</div>

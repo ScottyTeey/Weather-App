@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { environment } from '../environments/environment.development';
 
 // Interfaces for type safety
 export interface WeatherLocation {
@@ -54,9 +53,8 @@ export interface WeatherError {
   providedIn: 'root'
 })
 export class WeatherService {
-  private readonly apiUrl = environment.weatherstackApiUrl;
-  private readonly accessKey =environment.weatherstackApiKey;
-;
+  private readonly apiUrl = 'https://api.weatherstack.com/current';
+  private readonly accessKey = 'd92d41d7083a08bde2ad4cd38d89607a';
 
   constructor(private http: HttpClient) {}
 
