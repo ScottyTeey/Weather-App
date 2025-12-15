@@ -14,6 +14,26 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Weatherstack
+<b>Quick Start Guide</b> <br>
+Step 1: Your API Access Key <br>
+To get started quickly, you need to fork the MarketStack Postman Collection. Simply click the button below to fork it.
+
+
+
+
+<b>Step 2: Get your API Access Key</b> <br>
+Go to the [Weatherstack](https://weatherstack.com) website and choose the right subscription plan for your particular project.
+Get your personal API Access Key on the Dashboard to authenticate with the API. Keep it safe! You can reset it at any time in your Account Dashboard.
+
+<b>Step 3: Make your first API call</b> <br>
+Weatherstack Postman collection contains all the endpoints supported by Weatherstack API.
+Current weather data
+Historical weather data
+Weather forecast
+Autocomplete/Location lookup
+
+
 ## This implementation includes:
 
 ✅ Type-safe interfaces for API responses <br>
