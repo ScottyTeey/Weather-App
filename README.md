@@ -8,7 +8,7 @@ To start a local development server, run:
 
 ```bash
 npm install
-then
+
 ng serve
 ```
 
@@ -16,13 +16,13 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## This implementation includes:
 
-✅ Type-safe interfaces for API responses
-✅ Angular service with HttpClient and proper error handling
-✅ Loading states with spinner animation
-✅ Error handling with retry functionality
-✅ Debounced search to prevent excessive API calls
-✅ Responsive design with modern styling
-✅ Observable patterns with proper cleanup (takeUntil)
+✅ Type-safe interfaces for API responses <br>
+✅ Angular service with HttpClient and proper error handling <br>
+✅ Loading states with spinner animation <br>
+✅ Error handling with retry functionality <br>
+✅ Debounced search to prevent excessive API calls <br>
+✅ Responsive design with modern styling <br>
+✅ Observable patterns with proper cleanup (takeUntil) <br>
 ✅ All weather data displayed: temperature, location, description, humidity, wind speed, and more
 
 ## Code scaffolding
@@ -69,4 +69,4 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page and Weatherstack public api: [weatherstackapi](https://weatherstack.com/documentation)
